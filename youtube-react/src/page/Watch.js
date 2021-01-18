@@ -1,9 +1,14 @@
 import React from 'react'
+import Layout from '../components/Layout/Layout'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-export const Watch = () => {
+const Watch = () => {
     return (
-        <div>
+        <Layout>
             Watch
-        </div>
+        </Layout>
     )
 }
+
+export default Watch;
