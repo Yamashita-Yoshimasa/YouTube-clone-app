@@ -2,6 +2,9 @@ import React,{useContext, useEffect} from 'react'
 import {useLocation} from 'react-router-dom'
 import { fetchSelectData } from '../../apis/index'
 import {Store} from '../../store/index'
+import VideoPlay from '../VideoPlay/VideoPlay'
+import Style from './VideoDetail.module.scss'
+import Linkify from 'react-linkify'
 
 
 const VideoDtail = () => {
@@ -19,11 +22,16 @@ const VideoDtail = () => {
         setSelectedVideo()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    return (
-        <div>
-            
+    return globalState.selected ? (
+        <div className={Style.wrap}>
+            <VideoPlay id={globalState.selected.id} />
+            <p>{globalState.selected.snippet?.title}</p>
+            <hr />
+            <Linkify>
+                <pre>{globalState.selected.snippet?.description}</pre>
+            </Linkify>
         </div>
-    )
+    ) : (<span>No Data</span>)
 }
 
 export default VideoDtail
